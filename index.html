@@ -15,6 +15,7 @@
         <script src="./lib/js/bootstrap-toggle.min.js"></script>
 
         <link href="./src/styles.css" rel="stylesheet">
+        <link id="themeCss" href="./src/styles_light.css" rel="stylesheet">
         <script src="./index.js"></script>
     </head>
     <body>
@@ -29,9 +30,10 @@
                 <div class="questionPane">
                     <h2>Q1 template</h2>
                     <form action="">
-                        <input type="radio" name="answer" value="A1">A1</input>
-                        <input type="radio" name="answer" value="A2">A2</input>
-                        <input type="radio" name="answer" value="A3">A3</input>
+                        <input type="radio" name="answer" value="A1">A1</input></br>
+                        <input type="radio" name="answer" value="A2">A2</input></br>
+                        <input type="radio" name="answer" value="A3">A3</input></br>
+                        <button type="button" class="btn btn-success">Submit</button>
                     </form>
                 </div>
             </td></tr>
@@ -46,10 +48,6 @@
         </footer>
 
         <script type="text/javascript">
-            var themeLightBackground = "#DFEAF3";
-            var themeDarkBackground  = "#2D3045";
-            var themeLightTextColor  = "#000000";
-            var themeDarkTextColor   = "#FFFFFF";
             window.onload = loadGame;
 
             checkHeaderTheme();
@@ -61,15 +59,11 @@
                 if($('#themeSwitch').is(':checked')) {
                     $("#headerLight").show();
                     $("#headerDark").hide();
-                    $("header").css("background-color", themeLightBackground);
-                    $("body").css("background-color", themeLightBackground);
-                    $("body").css("color", themeLightTextColor);
+                    $("#themeCss").attr("href", "./src/styles_light.css")
                 } else {
                     $("#headerDark").show();
                     $("#headerLight").hide();
-                    $("header").css("background-color", themeDarkBackground);
-                    $("body").css("background-color", themeDarkBackground);
-                    $("body").css("color", themeDarkTextColor);
+                    $("#themeCss").attr("href", "./src/styles_dark.css")
                 }
             }
     	</script>
