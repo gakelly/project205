@@ -1,5 +1,9 @@
 function loadGame() {
+    var viewSizeX = 800;
+    var viewSizeY = 600;
     var game = new Phaser.Game(800, 600, Phaser.AUTO, '', { preload: preload, create: create, update: update });
+    var uiTextFormats = { font: "25px Arial", fill: '#FFFFFF' };
+    var textAgeLabel, textAgeValue, textGameStateLabel, textGameStateValue;
 
     function preload() {
         game.load.spritesheet('playerCharacter', './asset/platformer_sprites_base.png', 64, 64);
@@ -13,6 +17,12 @@ function loadGame() {
         character.animations.add('standing', [63], 10, false);
         character.anchor.setTo(0.5, 1);
         character.scale.setTo(3.0, 3.0);
+
+        // setup common UI text
+        textAgeLabel = game.add.text(0, 0, 'Age: ', uiTextFormats);
+        textAgeValue = game.add.text(70, 0, '{?}', uiTextFormats);
+        textGameStateLabel = game.add.text(viewSizeX-400, 0, 'Current State: ', uiTextFormats);
+        textGameStateValue = game.add.text(viewSizeX-230, 0, '{?}', uiTextFormats);
 
     }
 
