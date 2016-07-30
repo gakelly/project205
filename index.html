@@ -33,7 +33,7 @@
                         <input type="radio" name="answer" value="A1">A1</input></br>
                         <input type="radio" name="answer" value="A2">A2</input></br>
                         <input type="radio" name="answer" value="A3">A3</input></br>
-                        <button type="button" class="btn btn-success">Submit</button>
+                        <button id="submitBtn" type="button" class="btn btn-success">Submit</button>
                     </form>
                 </div>
             </td></tr>
@@ -59,10 +59,14 @@
                 if($('#themeSwitch').is(':checked')) {
                     $("#headerLight").show();
                     $("#headerDark").hide();
+                    $('#submitBtn').addClass("btn-success");
+                    $('#submitBtn').removeClass("btn-info");
                     $("#themeCss").attr("href", "./src/styles_light.css")
                 } else {
                     $("#headerDark").show();
                     $("#headerLight").hide();
+                    $('#submitBtn').addClass("btn-info");
+                    $('#submitBtn').removeClass("btn-success");
                     $("#themeCss").attr("href", "./src/styles_dark.css")
                 }
             }
