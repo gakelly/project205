@@ -46,4 +46,9 @@ function loadGame() {
 
         character.x = parseFloat($('#testSlider').val())/ 100.0 * viewSizeX;
     }
+
+    $(window).resize(function(){
+        game.width = $(window).width();
+    });
 }
+
