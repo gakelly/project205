@@ -2,11 +2,24 @@ header {
     background-color: #DFEAF3;
 }
 
+body {
+    background-color: #DFEAF3;
+}
+
 footer {
     text-align: center;
+}
+
+table {
+    align: center;
+    width: 100%
 }
 
 .radiopadding{
 padding: 5%;
 
+}
+
+.questionPane {
+    text-align: center;
 }

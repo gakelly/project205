@@ -4,14 +4,17 @@ function loadGame() {
     var game = new Phaser.Game(viewSizeX, viewSizeY, Phaser.AUTO, 'phaserCanvas',
                              { preload: preload, create: create, update: update });
     var character;
-    var uiTextFormats = { font: "25px Arial", fill: '#FFFFFF' };
-    var textQuizProgressLabel, textQuizProgressValue, textGameStateLabel, textGameStateValue;
+    var uiTextFormats = { font: "20px Arial", fill: '#FFFFFF' };
+    var textQuizProgressLabel, textQuizProgressValue;
+    var health = 3;
 
     function preload() {
         game.load.spritesheet('playerCharacter', './asset/platformer_sprites_base.png', 64, 64);
     }
 
     function create() {
+        game.stage.backgroundColor = '#DFEAF3';
+
         // setup player character animation loading.
         character = game.add.sprite(0, viewSizeY/1.1, "playerCharacter"); // 
         character.animations.add('walking', [32, 33, 34, 35, 36, 37, 38, 39], 8, true);
@@ -23,9 +26,6 @@ function loadGame() {
         // setup common UI text
          textQuizProgressLabel = game.add.text(0, 0, 'Progress: ', uiTextFormats);
          textQuizProgressValue = game.add.text(120, 0, '{?}', uiTextFormats);
-        // textGameStateLabel = game.add.text(viewSizeX-400, 0, 'Current State: ', uiTextFormats);
-        // textGameStateValue = game.add.text(viewSizeX-230, 0, '{?}', uiTextFormats);
-
     }
 
     var GameStateEnum = {
