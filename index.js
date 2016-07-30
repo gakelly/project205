@@ -2,10 +2,10 @@ function loadGame() {
     var viewSizeX = 1000;
     var viewSizeY = 100;
     var game = new Phaser.Game(viewSizeX, viewSizeY, Phaser.AUTO, 'phaserCanvas',
-                                { preload: preload, create: create, update: update });
+                             { preload: preload, create: create, update: update });
     var character;
     var uiTextFormats = { font: "25px Arial", fill: '#FFFFFF' };
-    var textAgeLabel, textAgeValue, textGameStateLabel, textGameStateValue;
+    var textQuizProgressLabel, textQuizProgressValue, textGameStateLabel, textGameStateValue;
 
     function preload() {
         game.load.spritesheet('playerCharacter', './asset/platformer_sprites_base.png', 64, 64);
@@ -21,8 +21,8 @@ function loadGame() {
         character.scale.setTo(1.0, 1.0);
 
         // setup common UI text
-        // textAgeLabel = game.add.text(0, 0, 'Age: ', uiTextFormats);
-        // textAgeValue = game.add.text(70, 0, '{?}', uiTextFormats);
+         textQuizProgressLabel = game.add.text(0, 0, 'Progress: ', uiTextFormats);
+         textQuizProgressValue = game.add.text(120, 0, '{?}', uiTextFormats);
         // textGameStateLabel = game.add.text(viewSizeX-400, 0, 'Current State: ', uiTextFormats);
         // textGameStateValue = game.add.text(viewSizeX-230, 0, '{?}', uiTextFormats);
 
@@ -41,5 +41,9 @@ function loadGame() {
         character.animations.play("walking");
         //character.animations.play("death");
         //character.animations.play("standing");
+
+        textQuizProgressValue.text = $('#testSlider').val();
+
+        character.x = parseFloat($('#testSlider').val())/ 100.0 * viewSizeX;
     }
 }
