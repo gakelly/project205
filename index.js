@@ -1,5 +1,5 @@
 function loadGame() {
-    var viewSizeX = 1000;
+    var viewSizeX = $(window).width();
     var viewSizeY = 100;
     var game = new Phaser.Game(viewSizeX, viewSizeY, Phaser.AUTO, 'phaserCanvas',
                              { preload: preload, create: create, update: update });
