@@ -33,3 +33,10 @@ padding: 2%;
 align: right;
 
 }
+
+
+.questionborder
+{
+background-color: white;
+border-top: 5px;
+}
