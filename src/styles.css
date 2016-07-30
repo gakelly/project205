@@ -15,4 +15,11 @@ padding: 2%;
 
 .questionPane {
     text-align: center;
+    padding-left: 20%;
+    padding-right: 20%;
+}
+
+.answers {
+    padding: 20px;
+    text-align: left;
 }
