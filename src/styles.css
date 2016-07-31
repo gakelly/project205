@@ -43,7 +43,7 @@ border-top: 5px;
 
 .lives
 {
-
+padding-right: 1%;
 /*width: 180px;*/
 }
 
@@ -55,4 +55,8 @@ border-top: 5px;
 
 h3 {
   float:right;
+}
+
+.answers{
+padding-right: 20%;
 }
