@@ -51,3 +51,9 @@ table {
 h3 {
     float:right;
 }
+
+.quizCorrectChoiceContainer {
+    border-width: 5px;
+    border-style: solid;
+    border-color: green;
+}
