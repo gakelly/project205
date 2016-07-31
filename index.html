@@ -47,13 +47,12 @@
                     <button id="nextBtn" type="button" class="btn btn-success">Next</button>
                 </form>
 
-                <div class="congrats" id="winningPanel">                        
-                    Youve lived until 75 years of age, and</br>
-                    answered __ questions correctly.</br></br>
-                    
-                    Happy Retirement!                                                                            
+                <div class="congrats" id="winningPanel">
+                    <p>Youve lived until 75 years of age, and</p>
+                    <p>answered __ questions correctly.</p>                    
+                    </br>
+                    <p>Happy Retirement!</p>                                                                         
                 </div>
-
             </div>
         </div>
 
@@ -82,6 +81,8 @@
         </footer>
 
         <script type="text/javascript">
+            $("#winningPanel").hide();
+
             window.onload = loadGame;
 
             checkHeaderTheme();
@@ -249,6 +250,7 @@
                     if (health > 0) {
                         $("#quizForm").hide();
                         
+                        $("#winningPanel").show();
                         // display success screen
                     }
                 } else {
