@@ -35,7 +35,7 @@
                     </h3>
                 </div>
 
-                <form action="" class="jumbotron">
+                <form action="" class="jumbotron" id="quizForm">
                     <h2 id="currentQuizQuestion">Q1 template</h2>
                     <div class="answers">
                         <div id="quizChoiceContainer1" class="quizChoiceContainer" ><input id="quizChoice1" type="radio" name="answer" value="A1"><span id="quizChoiceTxt1">A1</span></div>
@@ -212,6 +212,7 @@
                     console.log("incorrect choice!");
                     --health;
                 }
+                console.log("current health: " + health);
 
                 // update health UI
                 $("#heart3").hide();
@@ -237,7 +238,11 @@
                 $("#submitBtn").hide();
                 ++quizIndex;
                 if (quizIndex >= quizCount) { // quiz finished!
-                    
+                    if (health > 0) {
+                        $("#quizForm").hide();
+                        
+                        // display success screen
+                    }
                 } else {
                     $("#nextBtn").show();
                 }
