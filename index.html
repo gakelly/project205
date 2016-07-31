@@ -47,12 +47,15 @@
                     <button id="nextBtn" type="button" class="btn btn-success">Next</button>
                 </form>
 
-                <div class="congrats" id="winningPanel">
-                    <p>Youve lived until 75 years of age, and</p>
-                    <p>answered __ questions correctly.</p>                    
-                    </br>
-                    <p>Happy Retirement!</p>                                                                         
+                <div class="jumbotron">
+                    <div class="congrats" id="winningPanel">
+                        <p>Youve lived until 75 years of age, and</p>
+                        <p>answered __ questions correctly.</p>                    
+                        </br>
+                        <p>Happy Retirement!</p>                                                                         
+                    </div>
                 </div>
+                
             </div>
         </div>
 
@@ -169,31 +172,37 @@
 
                 // set question and choice text
                 $("#currentQuizQuestion").text(question);
+                $("#quizChoice1").hide();
+                $("#quizChoiceTxt1").hide();
+                $("#quizChoice2").hide();
+                $("#quizChoiceTxt2").hide();
+                $("#quizChoice3").hide();
+                $("#quizChoiceTxt3").hide();
+                $("#quizChoice4").hide();
+                $("#quizChoiceTxt4").hide();
                 if (answer1.length > 0) {
                     $("#quizChoice1").val(answer1);
                     $("#quizChoiceTxt1").text(answer1);
+                    $("#quizChoice1").show();
+                    $("#quizChoiceTxt1").show();
                 }
                 if (answer2.length > 0) {
                     $("#quizChoice2").val(answer2);
                     $("#quizChoiceTxt2").text(answer2);
+                    $("#quizChoice2").show();
+                    $("#quizChoiceTxt2").show();
                 }
                 if (answer3.length > 0) {
-                    $("#quizChoice3").show();
-                    $("#quizChoiceTxt3").show();
                     $("#quizChoice3").val(answer3);
                     $("#quizChoiceTxt3").text(answer3);
-                } else {
-                    $("#quizChoice3").hide();
-                    $("#quizChoiceTxt3").hide();
+                    $("#quizChoice3").show();
+                    $("#quizChoiceTxt3").show();
                 }
                 if (answer4.length > 0) {
-                    $("#quizChoice4").show();
-                    $("#quizChoiceTxt4").show();
                     $("#quizChoice4").val(answer4);
                     $("#quizChoiceTxt4").text(answer4);
-                } else {
-                    $("#quizChoice4").hide();
-                    $("#quizChoiceTxt4").hide();
+                    $("#quizChoice4").show();
+                    $("#quizChoiceTxt4").show();
                 }
 
                 // uncheck radio group
