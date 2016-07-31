@@ -113,6 +113,8 @@
             var currentChosenAnswer = "NA", currentCorrectAnswer = "WRONG";
             var currentCorrectAnswerIdx = 0;
             $(document).ready(function() {
+                $("#testSlider").attr("disabled", true);
+
                 $('input[type=radio][name=answer]').change(function() {
                     currentChosenAnswer = this.value;
                     console.log("choice selected: " + currentChosenAnswer);
@@ -161,6 +163,9 @@
                 console.log("Current question: " + question);
                 $("#currentQuizQuestion").text(question);
 
+                var ageGroup = column.eq(indexAgeGroup).find("Data").first().text();
+                var ageGroupArr = ageGroup.split(".");
+                var upperAgeGroup = ageGroupArr[ageGroupArr.length-1]; // TODO: could fail if age ground text is in unexpected format.
                 var answer1 = column.eq(indexQuestion+1).find("Data").first().text();
                 var answer2 = column.eq(indexQuestion+2).find("Data").first().text();
                 var answer3 = column.eq(indexQuestion+3).find("Data").first().text();
@@ -171,6 +176,10 @@
                 currentCorrectAnswer    = answers[currentCorrectAnswerIdx];
                 console.log("currentCorrectAnswer: " + currentCorrectAnswer)
                 console.log("currentChosenAnswer:" + currentChosenAnswer);
+
+                // set walking man slider
+                
+                $("#testSlider").val(upperAgeGroup);
 
                 // set question and choice text
                 $("#currentQuizQuestion").text(question);
