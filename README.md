@@ -25,12 +25,12 @@ https://2016.hackerspace.govhack.org/content/walks-life
 https://www.youtube.com/watch?v=Uc3L9mxHUEQ
 
 ### Licensing
-Walking man spritesheet created by Clint Bellanger, used under CC-By 3.0 license
+######Walking man spritesheet created by Clint Bellanger, used under CC-By 3.0 license
 http://opengameart.org/content/platformer-animations
 
 
 ######Walks of Life is licensed under Creative Commons by Attribution 4.0
 https://creativecommons.org/licenses/by/4.0/legalcode
 
-###### Logos and other visual assets by Belinda Ding, licensed under Creative Commons by Attribution 4.0
+######Logos and other visual assets by Belinda Ding, licensed under Creative Commons by Attribution 4.0
 http://myminimp3.deviantart.com/gallery/59844571/GovHack2016
