@@ -28,7 +28,11 @@
         <div class="questionborder">
             <div class="questionPane" style="padding:2%; padding-right: 20%; padding-left:20%">
                 <div class = "lives">
-                    <h3> Lives: <img id="heart" class="heart"src="./asset/heart.png"><img id="heart" class="heart" src="./asset/heart.png" ><img id="heart" class="heart" src="./asset/heart.png" ></h3>
+                    <h3> Lives: 
+                        <img id="heart1" class="heart" src="./asset/heart.png">
+                        <img id="heart2" class="heart" src="./asset/heart.png">
+                        <img id="heart3" class="heart" src="./asset/heart.png">
+                    </h3>
                 </div>
 
                 <form action="" class="jumbotron">
@@ -102,9 +106,6 @@
                 }
             });
 
-            var health = 3;
-
-
             function buildQuizPanel() {
                 console.log("Building quiz panel");
 
@@ -136,13 +137,18 @@
                 if (answer3.length > 0) {
                     $("#quizeChoice3").val(answer3);
                     $("#quizeChoiceTxt3").text(answer3);
+                } else {
+                    // TODO: hide radio
                 }
                 if (answer4.length > 0) {
                     $("#quizeChoice4").val(answer4);
                     $("#quizeChoiceTxt4").text(answer4);
+                } else {
+                    // TODO: hide radio
                 }
             }
 
+            var health = 3;
             $("#submitBtn").click(function(){
                 
                 // TODO: if answer incorrect reduce health and highlight green correct answer
