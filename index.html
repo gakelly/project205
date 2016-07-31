@@ -54,6 +54,14 @@
                         <p>Happy Retirement!</p>                                                                         
                     </div>
                 </div>
+
+                <div id="losingPanel" class="jumbotron">
+                    <div class="congrats">
+                        <p>You're a loser</p>              
+                        </br>
+                        <p>Loser!</p>                                                                         
+                    </div>
+                </div>
                 
             </div>
         </div>
@@ -84,6 +92,7 @@
 
         <script type="text/javascript">
             $("#winningPanel").hide();
+            $("#losingPanel").hide();
 
             window.onload = loadGame;
 
@@ -239,14 +248,15 @@
                 $("#quizChoiceContainer" + currentCorrectAnswerIdx).addClass("quizCorrectChoiceContainer");                
 
                 // do we show the next button? (are there more questions?)
+                // calculate lose conditions
                 $("#submitBtn").hide();
                 ++quizIndex;
-                if (quizIndex >= quizCount) { // quiz finished!
+                if (quizIndex >= quizCount || health <= 0) { // quiz finished!
+                    $("#quizForm").hide();
                     if (health > 0) {
-                        $("#quizForm").hide();
-                        
                         $("#winningPanel").show();
-                        // display success screen
+                    } else {
+                        $("#losingPanel").show();
                     }
                 } else {
                     $("#nextBtn").show();
