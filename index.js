@@ -67,3 +67,13 @@ function checkHeaderTheme() {
         $("#themeCss").attr("href", "./src/styles_dark.css")
     }
 }
+
+function disableAllAnswerRadios() {
+    for (var i = 1; i <= 4; ++i)
+        $("#quizChoice" + i).attr("disabled", true);
+}
+
+function enableAllAnswerRadios() {
+    for (var i = 1; i <= 4; ++i)
+        $("#quizChoice" + i).attr("disabled", false);
+}

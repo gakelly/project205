@@ -215,6 +215,8 @@
                     return;
                 }
 
+                disableAllAnswerRadios();
+
                 // if answer incorrect reduce health and highlight green correct answer
                 console.log("comparing:["+currentChosenAnswer+"] with ["+currentCorrectAnswer+"]");
                 if (currentChosenAnswer == currentCorrectAnswer) { // correct
@@ -263,6 +265,8 @@
             });
 
             $("#nextBtn").click(function(){
+                enableAllAnswerRadios();
+                
                 // clear correct answer border
                 $("#quizChoiceContainer" + (currentCorrectAnswerIdx+1)).removeClass("quizCorrectChoiceContainer");
 
