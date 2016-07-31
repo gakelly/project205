@@ -106,6 +106,14 @@
                 }
             });
 
+            var currentChosenAnswer = "NA", currentCorrectAnswer = "WRONG";
+            $(document).ready(function() {
+                $('input[type=radio][name=answer]').change(function() {
+                    currentChosenAnswer = this.value;
+                    console.log("choice selected: " + currentChosenAnswer);
+                });
+            });
+            
             function buildQuizPanel() {
                 console.log("Building quiz panel");
 
@@ -124,6 +132,7 @@
                 var answer3 = column.eq(indexQuestion+3).find("Data").first().text();
                 var answer4 = column.eq(indexQuestion+4).find("Data").first().text();
                 var correctAnswer = column.eq(indexCorrectAnswer).find("Data").first().text();
+                currentCorrectAnswer = correctAnswer;
 
                 $("#currentQuizQuestion").text(question);
                 if (answer1.length > 0) {
@@ -135,29 +144,58 @@
                     $("#quizeChoiceTxt2").text(answer2);
                 }
                 if (answer3.length > 0) {
+                    $("#quizeChoice3").show();
+                    $("#quizeChoiceTxt3").show();
                     $("#quizeChoice3").val(answer3);
                     $("#quizeChoiceTxt3").text(answer3);
                 } else {
-                    // TODO: hide radio
+                    $("#quizeChoice3").hide();
+                    $("#quizeChoiceTxt3").hide();
                 }
                 if (answer4.length > 0) {
+                    $("#quizeChoice4").show();
+                    $("#quizeChoiceTxt4").show();
                     $("#quizeChoice4").val(answer4);
                     $("#quizeChoiceTxt4").text(answer4);
                 } else {
-                    // TODO: hide radio
+                    $("#quizeChoice4").hide();
+                    $("#quizeChoiceTxt4").hide();
                 }
             }
 
             var health = 3;
             $("#submitBtn").click(function(){
-                
                 // TODO: if answer incorrect reduce health and highlight green correct answer
+                if (currentChosenAnswer.localeCompare(currentCorrectAnswer)) { // correct
+                    console.log("correct choice!");
+                    // carry out correct work
 
-                // TODO: destroy panel
+                } else { // wrong
+                    console.log("incorrect choice!");
+                    --health;
+                }
 
+                // update health UI
+                $("#heart3").hide();
+                $("#heart2").hide();
+                $("#heart1").hide();
+                switch (health) {
+                    case 3:
+                        $("#heart3").show();
+                    case 2:
+                    	$("#heart2").show();
+                    case 1:
+                        $("#heart1").show();
+                        break;
+                }
+
+            
                 // TODO: if more questions build new QnA panel
-
-
+                ++quizIndex;
+                buildQuizPanel();
+                if (quizIndex >= quizCount) { // quiz finished!
+                    // TODO: check win condition
+                }
             });
     	</script>
     </body>
