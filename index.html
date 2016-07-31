@@ -18,8 +18,8 @@
     <body>
         <header>
           <!-- <div class="pictures"> -->
-            <img id="headerLight" src="./asset/Logo_c.jpg" height="200px" >
-            <img id="headerDark" src="./asset/Logo_d.jpg"  height="200px" >
+            <img id="headerLight" src="./asset/Logo_c.jpg" height="180px" >
+            <img id="headerDark" src="./asset/Logo_d.jpg"  height="180px" >
           <!-- </div> -->
             <!-- <div class="swichlocation"> -->
             <input id="themeSwitch" type="checkbox" checked data-toggle="toggle" data-on="Light" data-off="Dark" data-onstyle="success" data-size="mini" align='right' data-offstyle="danger" >
@@ -47,13 +47,13 @@
                     <button id="nextBtn" type="button" class="btn btn-success">Next</button>
                 </form>
 
-                <div id="winningPanel" class="jumbotron">                                 
+                <div id="winningPanel" class="jumbotron">
                     <div class="congrats">
                         <h3 style="color:green;">Congratulations!</h3>
                         <p id="wonText1">You have lived until {age} years of age, and answered {questionsAnswereCount} questions correctly.</p>
-                        <p>Happy Retirement!</p>   
-                        <button id="replayBtnWon" type="button" class="btn btn-retry">TRY AGAIN</button>                                                                             
-                    </div>                                       
+                        <p>Happy Retirement!</p>
+                        <button id="replayBtnWon" type="button" class="btn btn-retry">TRY AGAIN</button>
+                    </div>
                 </div>
 
                 <div id="losingPanel" class="jumbotron">
@@ -66,10 +66,10 @@
                             </ul>
                         </p>
                         <p>Go for a second chance?</p>
-                        <button id="replayBtnLost" type="button" class="btn btn-retry">TRY AGAIN</button>                                                                          
+                        <button id="replayBtnLost" type="button" class="btn btn-retry">TRY AGAIN</button>
                     </div>
                 </div>
-                
+
             </div>
         </div>
 
@@ -93,8 +93,9 @@
         <div id='phaserCanvas'></div>
 
         <footer>
-            <p>GovHack 2016</p>
-            <p>Project 205 Copyright 2016</p>
+            <p>Project 205 - GovHack 2016</p>
+
+            <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/80x15.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
         </footer>
 
         <script type="text/javascript">
@@ -111,7 +112,7 @@
             var health = 3;
             var numCorrectAnswers = 0;
             var upperAgeGroup;
-            
+
             var currentChosenAnswer = "NA", currentCorrectAnswer = "WRONG";
             var currentCorrectAnswerIdx = 0;
             $(document).ready(function() {
@@ -148,7 +149,7 @@
                     }
                 });
             });
-            
+
             function buildQuizPanel() {
                 console.log("Building quiz panel");
 
@@ -180,7 +181,7 @@
                 console.log("currentChosenAnswer:" + currentChosenAnswer);
 
                 // set walking man slider
-                
+
                 $("#testSlider").val(upperAgeGroup);
 
                 // set question and choice text
@@ -219,7 +220,7 @@
                 }
 
                 // uncheck radio group
-                for (var i = 0; i < 4; ++i) 
+                for (var i = 0; i < 4; ++i)
                     $("#quizChoice" + i).prop('checked', false);
             }
 
@@ -274,7 +275,7 @@
                 // highlight correct/incorrect
                 for (var i = 1; i <= 4; ++i)
                     $("#quizChoiceContainer" + i).removeClass("quizCorrectChoiceContainer");
-                $("#quizChoiceContainer" + (currentCorrectAnswerIdx+1)).addClass("quizCorrectChoiceContainer");                
+                $("#quizChoiceContainer" + (currentCorrectAnswerIdx+1)).addClass("quizCorrectChoiceContainer");
 
                 // do we show the next button? (are there more questions?)
                 // calculate lose conditions
