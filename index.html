@@ -87,59 +87,45 @@
 
             window.onload = loadGame;
 
-            checkHeaderTheme();
-            $('#themeSwitch').change(function(){
-                checkHeaderTheme();
-            });
-
-            function checkHeaderTheme() {
-                if($('#themeSwitch').is(':checked')) {
-                    $("#headerLight").show();
-                    $("#headerDark").hide();
-                    $("#submitBtn").addClass("btn-success");
-                    $("#submitBtn").removeClass("btn-info");
-                    $("#themeCss").attr("href", "./src/styles_light.css")
-                } else {
-                    $("#headerDark").show();
-                    $("#headerLight").hide();
-                    $("#submitBtn").addClass("btn-info");
-                    $("#submitBtn").removeClass("btn-success");
-                    $("#themeCss").attr("href", "./src/styles_dark.css")
-                }
-            }
-
             // load data XML
             var xmlDoc;
             var quizs;
             var quizIndex = 1;
             var quizCount = 0;
-            $.ajax({
-                type: "GET",
-                url: "./rsrc/qna_data.xml",
-                dataType: "xml",
-                success: function (xmlDoc) {
-                    // test
-                    quizs = $(xmlDoc).find("Table");
-                    console.log("quiz set count: ", quizs.length);
-                    quizCount = $(quizs).find("Row").length;
-                    console.dir(quizs);
-                    console.log("quiz count: " + quizCount);
-
-                    buildQuizPanel();
-                },
-                error: function() { // report error
-                    var failureString = "Failure loading quiz data";
-                    console.log(failureString);
-                    alert(failureString);
-                }
-            });
-
+            var health = 3;
+            
             var currentChosenAnswer = "NA", currentCorrectAnswer = "WRONG";
             var currentCorrectAnswerIdx = 0;
             $(document).ready(function() {
                 $('input[type=radio][name=answer]').change(function() {
                     currentChosenAnswer = this.value;
                     console.log("choice selected: " + currentChosenAnswer);
+                });
+
+                checkHeaderTheme();
+                $('#themeSwitch').change(function(){
+                    checkHeaderTheme();
+                });
+
+                $.ajax({
+                    type: "GET",
+                    url: "./rsrc/qna_data.xml",
+                    dataType: "xml",
+                    success: function (xmlDoc) {
+                        // test
+                        quizs = $(xmlDoc).find("Table");
+                        console.log("quiz set count: ", quizs.length);
+                        quizCount = $(quizs).find("Row").length;
+                        console.dir(quizs);
+                        console.log("quiz count: " + quizCount);
+
+                        buildQuizPanel();
+                    },
+                    error: function() { // report error
+                        var failureString = "Failure loading quiz data";
+                        console.log(failureString);
+                        alert(failureString);
+                    }
                 });
             });
             
@@ -168,6 +154,7 @@
                 currentCorrectAnswerIdx = correctAnswer;
                 currentCorrectAnswer    = answers[correctAnswer];
                 console.log("currentCorrectAnswer: " + currentCorrectAnswer)
+                console.log("currentChosenAnswer:" + currentChosenAnswer);
 
                 // set question and choice text
                 $("#currentQuizQuestion").text(question);
@@ -209,7 +196,6 @@
                     $("#quizChoice" + i).prop('checked', false);
             }
 
-            var health = 3;
             $("#submitBtn").click(function(){
                 // Check if anything selected
                 if (!$("#quizChoice1").prop('checked') &&
@@ -221,7 +207,8 @@
                 }
 
                 // if answer incorrect reduce health and highlight green correct answer
-                if (currentChosenAnswer.localeCompare(currentCorrectAnswer)) { // correct
+                console.log("comparing:["+currentChosenAnswer+"] with ["+currentCorrectAnswer+"]");
+                if (currentChosenAnswer == currentCorrectAnswer) { // correct
                     console.log("correct choice!");
                     // carry out correct work
 

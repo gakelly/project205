@@ -52,3 +52,18 @@ function loadGame() {
     });
 }
 
+function checkHeaderTheme() {
+    if($('#themeSwitch').is(':checked')) {
+        $("#headerLight").show();
+        $("#headerDark").hide();
+        $("#submitBtn").addClass("btn-success");
+        $("#submitBtn").removeClass("btn-info");
+        $("#themeCss").attr("href", "./src/styles_light.css")
+    } else {
+        $("#headerDark").show();
+        $("#headerLight").hide();
+        $("#submitBtn").addClass("btn-info");
+        $("#submitBtn").removeClass("btn-success");
+        $("#themeCss").attr("href", "./src/styles_dark.css")
+    }
+}
