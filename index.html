@@ -161,7 +161,7 @@
                 var correctAnswer = column.eq(indexCorrectAnswer).find("Data").first().text();
                 var answers = [answer1, answer2, answer3, answer4];
                 currentCorrectAnswerIdx = correctAnswer - 1; // 0 based index
-                currentCorrectAnswer    = answers[correctAnswer];
+                currentCorrectAnswer    = answers[currentCorrectAnswerIdx];
                 console.log("currentCorrectAnswer: " + currentCorrectAnswer)
                 console.log("currentChosenAnswer:" + currentChosenAnswer);
 
