@@ -66,3 +66,16 @@ table {
     border-style:solid;
     border-color:AB93D3;
 }
+
+.btn-retry {            
+    position:relative;
+    float:right;
+    right:-30px;     
+    bottom:-2px;        
+    border-radius: 15px / 30px ;
+    border-style:solid;
+    border-color:#359438;
+    border-width: 3px;
+    font: 15px arial bold;
+    background-color: #96F299;
+}
