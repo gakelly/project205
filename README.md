@@ -29,8 +29,8 @@ Walking man spritesheet created by Clint Bellanger, used under CC-By 3.0 license
 http://opengameart.org/content/platformer-animations
 
 
-#######Walks of Life is licensed under Creative Commons by Attribution 4.0
+######Walks of Life is licensed under Creative Commons by Attribution 4.0
 https://creativecommons.org/licenses/by/4.0/legalcode
 
-####### Logos and other visual assets by Belinda Ding, licensed under Creative Commons by Attribution 4.0
+###### Logos and other visual assets by Belinda Ding, licensed under Creative Commons by Attribution 4.0
 http://myminimp3.deviantart.com/gallery/59844571/GovHack2016
