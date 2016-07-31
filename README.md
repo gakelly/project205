@@ -24,3 +24,4 @@ https://2016.hackerspace.govhack.org/content/walks-life
 
 Walks of Life is licensed under Creative Commons by Attribution 4.0
 https://creativecommons.org/licenses/by/4.0/legalcode
+
