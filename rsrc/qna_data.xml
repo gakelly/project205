@@ -1,5 +1,34 @@
+Questions1.xml
+Details
+Activity
+Sharing Info
+
+B
+General Info
+Type
+XML
+Size
+12 KB (12,241 bytes)
+Storage used
+0 bytesOwned by someone else
+Location
+GovHack 2016
+Owner
+Lachlan Platts
+Modified
+4:28 pm by Lachlan Platts
+Created
+4:28 pm
+Description
+Add a description
+Download permissions
+Viewers can download
+
+DoubleClick
+Google Analytics
+Google Tag Manager
+
 <?xml version="1.0"?>
-<?mso-application progid="Excel.Sheet"?>
 <Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
  xmlns:o="urn:schemas-microsoft-com:office:office"
  xmlns:x="urn:schemas-microsoft-com:office:excel"
@@ -9,16 +38,16 @@
   <Author>Lachlan</Author>
   <LastAuthor>Lachlan</LastAuthor>
   <Created>2016-07-30T07:58:41Z</Created>
-  <LastSaved>2016-07-31T04:25:19Z</LastSaved>
-  <Version>16.00</Version>
+  <LastSaved>2016-07-31T06:22:51Z</LastSaved>
+  <Version>14.0</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>4905</WindowHeight>
-  <WindowWidth>15345</WindowWidth>
-  <WindowTopX>0</WindowTopX>
+  <WindowHeight>10740</WindowHeight>
+  <WindowWidth>31940</WindowWidth>
+  <WindowTopX>2940</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -33,13 +62,13 @@
    <Protection/>
   </Style>
   <Style ss:ID="s62">
-   <Font ss:FontName="Arial" ss:Size="13" ss:Color="#000000" ss:Underline="Single"/>
+   <Font ss:Size="13" ss:Color="#000000" ss:Underline="Single"/>
   </Style>
   <Style ss:ID="s63">
-   <Font ss:FontName="Arial" ss:Size="13" ss:Color="#000000"/>
+   <Font ss:Size="13" ss:Color="#000000"/>
   </Style>
   <Style ss:ID="s64">
-   <Font ss:FontName="Arial" ss:Size="13" ss:Color="#000000" ss:Bold="1"/>
+   <Font ss:Size="13" ss:Color="#000000" ss:Bold="1"/>
   </Style>
   <Style ss:ID="s65">
    <NumberFormat ss:Format="@"/>
@@ -49,23 +78,26 @@
    <NumberFormat ss:Format="@"/>
   </Style>
   <Style ss:ID="s67">
-   <Font ss:FontName="Arial" ss:Size="13" ss:Color="#000000"/>
+   <Font ss:Size="13" ss:Color="#000000"/>
    <NumberFormat ss:Format="@"/>
   </Style>
   <Style ss:ID="s68">
-   <Font ss:FontName="Arial" ss:Size="13" ss:Color="#000000"/>
+   <Font ss:Size="13" ss:Color="#000000"/>
    <NumberFormat ss:Format="Short Time"/>
   </Style>
   <Style ss:ID="s69">
-   <Font ss:FontName="Arial" ss:Size="13" ss:Color="#000000" ss:Bold="1"/>
+   <Font ss:Size="13" ss:Color="#000000" ss:Bold="1"/>
    <NumberFormat ss:Format="Short Time"/>
+  </Style>
+  <Style ss:ID="s70">
+   <Font ss:FontName="Calibri" ss:Size="12" ss:Color="#000000" ss:Bold="1"/>
   </Style>
  </Styles>
  <Worksheet ss:Name="Sheet1">
   <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="992" x:FullColumns="1"
-   x:FullRows="1" ss:DefaultColumnWidth="65.25" ss:DefaultRowHeight="15">
-   <Column ss:Index="2" ss:Width="615.75"/>
-   <Row ss:AutoFitHeight="0" ss:Height="15.9375">
+   x:FullRows="1" ss:DefaultColumnWidth="65" ss:DefaultRowHeight="15">
+   <Column ss:Index="2" ss:AutoFitWidth="0" ss:Width="633"/>
+   <Row ss:AutoFitHeight="0" ss:Height="16">
     <Cell ss:StyleID="s62"><Data ss:Type="String">AGE</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">Question</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">Answer 1</Data></Cell>
@@ -74,16 +106,16 @@
     <Cell ss:StyleID="s62"><Data ss:Type="String">Answer 4</Data></Cell>
     <Cell ss:StyleID="s62"><Data ss:Type="String">Correct</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="15.9375">
+   <Row ss:AutoFitHeight="0" ss:Height="16">
     <Cell ss:StyleID="s67"><Data ss:Type="Number">0.4</Data></Cell>
-    <Cell ss:StyleID="s63"><Data ss:Type="String">The rate of 0-4 mortality is 100 per 100,000 people. At which age group (years) is this rate overtaken?</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">The rate of 0-4 mortality is 100 per 100,000 people (2010). At which age group (years) is this rate overtaken?</Data></Cell>
     <Cell ss:StyleID="s63"><Data ss:Type="String">30-34 yrs</Data></Cell>
     <Cell ss:StyleID="s63"><Data ss:Type="String">35-39 yrs</Data></Cell>
     <Cell ss:StyleID="s64"><Data ss:Type="String">40-44 yrs</Data></Cell>
     <Cell ss:StyleID="s63"><Data ss:Type="String">45-49 yrs</Data></Cell>
     <Cell ss:StyleID="s63"><Data ss:Type="Number">3</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="15.9375">
+   <Row ss:AutoFitHeight="0" ss:Height="16">
     <Cell ss:StyleID="s67"><Data ss:Type="Number">5.9</Data></Cell>
     <Cell ss:StyleID="s63"><Data ss:Type="String">Were men or women more likely to die on the roads in 2010?</Data></Cell>
     <Cell ss:StyleID="s64"><Data ss:Type="String">Men</Data></Cell>
@@ -92,7 +124,7 @@
     <Cell ss:StyleID="s63"/>
     <Cell ss:StyleID="s63"><Data ss:Type="Number">1</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="15.9375">
+   <Row ss:AutoFitHeight="0" ss:Height="16">
     <Cell ss:StyleID="s67"><Data ss:Type="Number">10.14</Data></Cell>
     <Cell ss:StyleID="s63"><Data ss:Type="String">For the age group 10-17, what is the ratio of males to females in Youth Justice Detention?</Data></Cell>
     <Cell ss:StyleID="s63"><Data ss:Type="String">1 to 1</Data></Cell>
@@ -101,7 +133,7 @@
     <Cell ss:StyleID="s63"><Data ss:Type="String">12 to 1</Data></Cell>
     <Cell ss:StyleID="s63"><Data ss:Type="Number">2</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="15.9375">
+   <Row ss:AutoFitHeight="0" ss:Height="16">
     <Cell ss:StyleID="s67"><Data ss:Type="Number">10.14</Data></Cell>
     <Cell ss:StyleID="s63"><Data ss:Type="String">Which speed limit saw the most road deaths in 2010?</Data></Cell>
     <Cell ss:StyleID="s63"><Data ss:Type="String">60kph</Data></Cell>
@@ -110,7 +142,7 @@
     <Cell ss:StyleID="s63"><Data ss:Type="String">Unlimited</Data></Cell>
     <Cell ss:StyleID="s63"><Data ss:Type="Number">3</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="15.9375">
+   <Row ss:AutoFitHeight="0" ss:Height="16">
     <Cell ss:StyleID="s67"><Data ss:Type="Number">15.19</Data></Cell>
     <Cell ss:StyleID="s63"><Data ss:Type="String">What time of the day saw the most road deaths in 2010?</Data></Cell>
     <Cell ss:StyleID="s65"><Data ss:Type="String">8pm</Data></Cell>
@@ -119,7 +151,7 @@
     <Cell ss:StyleID="s65"><Data ss:Type="String">7am</Data></Cell>
     <Cell ss:StyleID="s63"><Data ss:Type="Number">2</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="15.9375">
+   <Row ss:AutoFitHeight="0" ss:Height="16">
     <Cell ss:StyleID="s67"><Data ss:Type="Number">15.19</Data></Cell>
     <Cell ss:StyleID="s63"><Data ss:Type="String">For 15 to 19 year olds, what was the leading cause of death in 1909?</Data></Cell>
     <Cell ss:StyleID="s63"><Data ss:Type="String">External causes</Data></Cell>
@@ -128,16 +160,16 @@
     <Cell ss:StyleID="s63"><Data ss:Type="String">Respiratory diseases</Data></Cell>
     <Cell ss:StyleID="s63"><Data ss:Type="Number">3</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="15.9375">
+   <Row ss:AutoFitHeight="0" ss:Height="16">
     <Cell ss:StyleID="s67"><Data ss:Type="Number">20.24</Data></Cell>
     <Cell ss:StyleID="s63"><Data ss:Type="String">In 2010, what state would you need to live in to receive, on average, the highest gross household income?</Data></Cell>
     <Cell ss:StyleID="s64"><Data ss:Type="String">ACT</Data></Cell>
     <Cell ss:StyleID="s63"><Data ss:Type="String">NSW</Data></Cell>
-    <Cell ss:StyleID="s63"><Data ss:Type="String">Vic</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">VIC</Data></Cell>
     <Cell ss:StyleID="s63"><Data ss:Type="String">WA</Data></Cell>
     <Cell ss:StyleID="s63"><Data ss:Type="Number">1</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="15.9375">
+   <Row ss:AutoFitHeight="0" ss:Height="16">
     <Cell ss:StyleID="s67"><Data ss:Type="Number">20.24</Data></Cell>
     <Cell ss:StyleID="s63"><Data ss:Type="String">In 2012, 1 in 3 deaths were premature (occuring before 75 years old). How many were considered preventable?</Data></Cell>
     <Cell ss:StyleID="s67"><Data ss:Type="String">20%</Data></Cell>
@@ -146,7 +178,7 @@
     <Cell ss:StyleID="s67"><Data ss:Type="String">50%</Data></Cell>
     <Cell ss:StyleID="s63"><Data ss:Type="Number">4</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="15.9375">
+   <Row ss:AutoFitHeight="0" ss:Height="16">
     <Cell ss:StyleID="s67"><Data ss:Type="Number">30.34</Data></Cell>
     <Cell ss:StyleID="s63"><Data ss:Type="String">In 2010, how many people died on Australian roads?</Data></Cell>
     <Cell ss:StyleID="s63"><Data ss:Type="Number">1098</Data></Cell>
@@ -155,7 +187,7 @@
     <Cell ss:StyleID="s63"><Data ss:Type="Number">1785</Data></Cell>
     <Cell ss:StyleID="s63"><Data ss:Type="Number">3</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="15.9375">
+   <Row ss:AutoFitHeight="0" ss:Height="16">
     <Cell ss:StyleID="s67"><Data ss:Type="Number">30.34</Data></Cell>
     <Cell ss:StyleID="s63"><Data ss:Type="String">Which type of cancer has the highest survival rate for 30-34 year olds?</Data></Cell>
     <Cell ss:StyleID="s63"><Data ss:Type="String">Bowel</Data></Cell>
@@ -164,7 +196,7 @@
     <Cell ss:StyleID="s64"><Data ss:Type="String">Thyroid</Data></Cell>
     <Cell ss:StyleID="s63"><Data ss:Type="Number">4</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="15.9375">
+   <Row ss:AutoFitHeight="0" ss:Height="16">
     <Cell ss:StyleID="s67"><Data ss:Type="Number">35.39</Data></Cell>
     <Cell ss:StyleID="s63"><Data ss:Type="String">In 2010 how many times higher was the rate of suicide for males as for females?</Data></Cell>
     <Cell ss:StyleID="s63"><Data ss:Type="Number">2</Data></Cell>
@@ -173,7 +205,7 @@
     <Cell ss:StyleID="s63"><Data ss:Type="Number">6</Data></Cell>
     <Cell ss:StyleID="s63"><Data ss:Type="Number">2</Data></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="15.9375">
+   <Row ss:AutoFitHeight="0" ss:Height="16">
     <Cell ss:StyleID="s67"><Data ss:Type="Number">40.44</Data></Cell>
     <Cell ss:StyleID="s63"><Data ss:Type="String">Does university attrition (drop out) rate increase or decrease with age?</Data></Cell>
     <Cell ss:StyleID="s64"><Data ss:Type="String">Increase</Data></Cell>
@@ -181,6 +213,28 @@
     <Cell ss:StyleID="s63"><Data ss:Type="String">Stays the same</Data></Cell>
     <Cell ss:StyleID="s63"/>
     <Cell ss:StyleID="s63"><Data ss:Type="Number">1</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="16">
+    <Cell ss:StyleID="s67"><Data ss:Type="String">45.49</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">What was the leading cause of death for females, 45-49 year old in 1971?</Data></Cell>
+    <Cell><Data ss:Type="String">All diseases of the circulatory system</Data></Cell>
+    <Cell ss:StyleID="s70"><Data ss:Type="String">All neoplasms</Data></Cell>
+    <Cell><Data ss:Type="String">Cerebrovascular disease</Data></Cell>
+    <Cell><Data ss:Type="String">Coronary heart disease</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="Number">2</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="16">
+    <Cell ss:StyleID="s67"><Data ss:Type="String">50.54</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">In 1943 which group had the highest mortality rate?</Data></Cell>
+    <Cell ss:StyleID="s64"><Data ss:Type="String">0-4 year old males</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">0-4 year old females</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">50-54 year old males</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="String">50-54 year old females</Data></Cell>
+    <Cell ss:StyleID="s63"><Data ss:Type="Number">1</Data></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s67"/>
+    <Cell ss:StyleID="s63"/>
    </Row>
   </Table>
   <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
@@ -191,17 +245,17 @@
     <HorizontalResolution>-4</HorizontalResolution>
     <VerticalResolution>-4</VerticalResolution>
    </Print>
+   <PageLayoutZoom>0</PageLayoutZoom>
    <Selected/>
    <Panes>
     <Pane>
      <Number>3</Number>
-     <ActiveRow>18</ActiveRow>
+     <ActiveRow>16</ActiveRow>
      <ActiveCol>1</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
    <ProtectScenarios>False</ProtectScenarios>
-   <x:PageLayoutZoom>0</x:PageLayoutZoom>
   </WorksheetOptions>
  </Worksheet>
 </Workbook>
