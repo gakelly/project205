@@ -12,7 +12,6 @@
  - Benjamin Huang
 
 
-
 ###Team Google Drive
 https://drive.google.com/drive/folders/0B0LeX3Myb7D0bmVULVVEdkFhUlU
 
