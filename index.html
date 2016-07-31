@@ -162,7 +162,7 @@
                 var correctAnswer = column.eq(indexCorrectAnswer).find("Data").first().text();
                 var answers = [answer1, answer2, answer3, answer4];
                 currentCorrectAnswerIdx = correctAnswer - 1; // 0 based index
-                currentCorrectAnswer    = answers[correctAnswer];
+                currentCorrectAnswer    = answers[currentCorrectAnswerIdx];
                 console.log("currentCorrectAnswer: " + currentCorrectAnswer)
                 console.log("currentChosenAnswer:" + currentChosenAnswer);
 
@@ -216,6 +216,8 @@
                     return;
                 }
 
+                disableAllAnswerRadios();
+
                 // if answer incorrect reduce health and highlight green correct answer
                 console.log("comparing:["+currentChosenAnswer+"] with ["+currentCorrectAnswer+"]");
                 if (currentChosenAnswer == currentCorrectAnswer) { // correct
@@ -264,6 +266,8 @@
             });
 
             $("#nextBtn").click(function(){
+                enableAllAnswerRadios();
+                
                 // clear correct answer border
                 $("#quizChoiceContainer" + (currentCorrectAnswerIdx+1)).removeClass("quizCorrectChoiceContainer");
 
