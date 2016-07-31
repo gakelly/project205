@@ -4,11 +4,11 @@
  - Gerard Kelly
  - Beth Lapthorne
  - Belinda Ding
- - Peyton M
- - Hayley
- - Thomas
- - Locky
- - Paul
+ - Peyton Menzies
+ - Hayley Purdon
+ - Thomas Edwards
+ - Lachlan Platts
+ - Paul Ingram
 
 
 
