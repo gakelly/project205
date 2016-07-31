@@ -44,9 +44,26 @@
                         <input id="quizeChoice4" type="radio" name="answer" value="A4"><span id="quizeChoiceTxt4">A4</span></br>
                     </div>
                     <button id="submitBtn" type="button" class="btn btn-success">Submit</button>
+                    <button id="nextBtn" type="button" class="btn btn-success">Next</button>
                 </form>
             </div>
         </div>
+
+        <div class="modal fade" id="needToPickAnAnswer" role="dialog">
+            <div class="modal-dialog">
+              <!-- Modal content-->
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h4 class="modal-title">Hey!</h4>
+                </div>
+                <div class="modal-body">Gotta pick an answer!</div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
 
         <input type="range" min="0" max="100" defaultValue="0" id='testSlider' />
         <div id='phaserCanvas'></div>
@@ -117,6 +134,9 @@
             function buildQuizPanel() {
                 console.log("Building quiz panel");
 
+                $("#submitBtn").show();
+                $("#nextBtn").hide();
+
                 var indexAgeGroup = 0;
                 var indexQuestion = 1;
                 var indexCorrectAnswer = 6;
@@ -132,7 +152,9 @@
                 var answer3 = column.eq(indexQuestion+3).find("Data").first().text();
                 var answer4 = column.eq(indexQuestion+4).find("Data").first().text();
                 var correctAnswer = column.eq(indexCorrectAnswer).find("Data").first().text();
-                currentCorrectAnswer = correctAnswer;
+                var answers = [answer1, answer2, answer3, answer4];
+                currentCorrectAnswer = answers[correctAnswer];
+                console.log("currentCorrectAnswer: " + currentCorrectAnswer)
 
                 // set question and choice text
                 $("#currentQuizQuestion").text(question);
@@ -172,7 +194,16 @@
 
             var health = 3;
             $("#submitBtn").click(function(){
-                // TODO: if answer incorrect reduce health and highlight green correct answer
+                // Check if anything selected
+                if (!$("#quizeChoice1").prop('checked') &&
+                    !$("#quizeChoice2").prop('checked') &&
+                    !$("#quizeChoice3").prop('checked') &&
+                    !$("#quizeChoice4").prop('checked')) {
+                    $("#needToPickAnAnswer").modal("show");
+                    return;
+                }
+
+                // if answer incorrect reduce health and highlight green correct answer
                 if (currentChosenAnswer.localeCompare(currentCorrectAnswer)) { // correct
                     console.log("correct choice!");
                     // carry out correct work
@@ -196,10 +227,22 @@
                         break;
                 }
 
-            
-                // TODO: if more questions build new QnA panel
+                // TODO: highlight correct/incorrect
+                
+
+                // do we show the next button? (are there more questions?)
+                $("#submitBtn").hide();
                 ++quizIndex;
+                if (quizIndex >= quizCount) { // quiz finished!
+                    
+                } else {
+                    $("#nextBtn").show();
+                }
+            });
+
+            $("#nextBtn").click(function(){
                 buildQuizPanel();
+                ++quizIndex;
                 if (quizIndex >= quizCount) { // quiz finished!
                     // TODO: check win condition
                 }
