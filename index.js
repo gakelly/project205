@@ -4,7 +4,7 @@ function loadGame() {
     var game = new Phaser.Game(viewSizeX, viewSizeY, Phaser.AUTO, 'phaserCanvas',
                              { preload: preload, create: create, update: update });
     var character;
-    var uiTextFormats = { font: "20px Arial", fill: '#FFFFFF' };
+    var uiTextFormats = { font: "15px Arial", fill: '#FFFFFF' };
     var textQuizProgressLabel, textQuizProgressValue;
     var health = 3;
 
@@ -24,8 +24,8 @@ function loadGame() {
         character.scale.setTo(1.0, 1.0);
 
         // setup common UI text
-         textQuizProgressLabel = game.add.text(0, 0, 'Progress: ', uiTextFormats);
-         textQuizProgressValue = game.add.text(120, 0, '{?}', uiTextFormats);
+         textQuizProgressLabel = game.add.text(0, 0, 'Age: ', uiTextFormats);
+         textQuizProgressValue = game.add.text(40, 0, '{?}', uiTextFormats);
     }
 
     var GameStateEnum = {
@@ -38,6 +38,8 @@ function loadGame() {
     var gameState = GameStateEnum.InitialPlayerSetup;
 
     function update() {
+        game.stage.backgroundColor = $("header").css("background-color");
+
         if ($("#heart1").is(":visible"))
             character.animations.play("walking");
         else
