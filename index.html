@@ -160,7 +160,7 @@
                 var answer4 = column.eq(indexQuestion+4).find("Data").first().text();
                 var correctAnswer = column.eq(indexCorrectAnswer).find("Data").first().text();
                 var answers = [answer1, answer2, answer3, answer4];
-                currentCorrectAnswerIdx = correctAnswer;
+                currentCorrectAnswerIdx = correctAnswer - 1; // 0 based index
                 currentCorrectAnswer    = answers[correctAnswer];
                 console.log("currentCorrectAnswer: " + currentCorrectAnswer)
                 console.log("currentChosenAnswer:" + currentChosenAnswer);
@@ -242,10 +242,9 @@
                 }
 
                 // highlight correct/incorrect
-                for (var i = 0; i < 4; ++i) {
+                for (var i = 1; i <= 4; ++i)
                     $("#quizChoiceContainer" + i).removeClass("quizCorrectChoiceContainer");
-                }
-                $("#quizChoiceContainer" + currentCorrectAnswerIdx).addClass("quizCorrectChoiceContainer");                
+                $("#quizChoiceContainer" + (currentCorrectAnswerIdx+1)).addClass("quizCorrectChoiceContainer");                
 
                 // do we show the next button? (are there more questions?)
                 // calculate lose conditions
@@ -265,7 +264,7 @@
 
             $("#nextBtn").click(function(){
                 // clear correct answer border
-                $("#quizChoiceContainer" + currentCorrectAnswerIdx).removeClass("quizCorrectChoiceContainer");
+                $("#quizChoiceContainer" + (currentCorrectAnswerIdx+1)).removeClass("quizCorrectChoiceContainer");
 
                 buildQuizPanel();
                 if (quizIndex >= quizCount) { // quiz finished!
