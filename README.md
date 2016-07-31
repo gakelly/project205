@@ -1,16 +1,16 @@
 # project205
 ####GovHack 2016
 
+ - Benjamin Huang
+ - Belinda Ding
+ - Beth Lapthorne
  - Cliff Barnett
  - Gerard Kelly
- - Beth Lapthorne
- - Belinda Ding
- - Peyton Menzies
  - Hayley Purdon
- - Thomas Edwards
  - Lachlan Platts
  - Paul Ingram
- - Benjamin Huang
+ - Peyton Menzies
+ - Thomas Edwards
 
 ###Hosted Web Application
 http://107.170.255.134/project205/
@@ -21,7 +21,7 @@ https://drive.google.com/drive/folders/0B0LeX3Myb7D0bmVULVVEdkFhUlU
 ###GovHack Team Page
 https://2016.hackerspace.govhack.org/content/walks-life
 
-###GoveHack Demo Video
+###GovHack Demo Video
 https://www.youtube.com/watch?v=Uc3L9mxHUEQ
 
 ### Licensing
