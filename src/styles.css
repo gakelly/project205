@@ -27,6 +27,7 @@ table {
 .answers {
     padding: 20px;
     padding-left: 20%;
+    padding-right: 20%;
     text-align: left;
 }
 
@@ -55,6 +56,7 @@ table {
     border-width: 5px;
     border-style: solid;
     border-color: green;
+    border-radius: 10px;
 }
 
 .congrats {            
