@@ -33,11 +33,12 @@
             <tr><td>
                 <div class="questionPane" style="padding:2%; padding-right: 20%; padding-left:20%">
                     <form action="" class="jumbotron">
-                        <h2>Q1 template</h2>
+                        <h2 id="currentQuizQuestion">Q1 template</h2>
                         <div class="answers">
-                            <input type="radio" name="answer" value="A1">A1</input></br>
-                            <input type="radio" name="answer" value="A2">A2</input></br>
-                            <input type="radio" name="answer" value="A3">A3</input></br>
+                            <input id="quizeChoice1" type="radio" name="answer" value="A1"><span id="quizeChoiceTxt1">A1</span></br>
+                            <input id="quizeChoice2" type="radio" name="answer" value="A2"><span id="quizeChoiceTxt2">A2</span></br>
+                            <input id="quizeChoice3" type="radio" name="answer" value="A3"><span id="quizeChoiceTxt3">A3</span></br>
+                            <input id="quizeChoice4" type="radio" name="answer" value="A4"><span id="quizeChoiceTxt4">A4</span></br>
                         </div>
                         <button id="submitBtn" type="button" class="btn btn-success">Submit</button>
                     </form>
@@ -65,17 +66,98 @@
                 if($('#themeSwitch').is(':checked')) {
                     $("#headerLight").show();
                     $("#headerDark").hide();
-                    $('#submitBtn').addClass("btn-success");
-                    $('#submitBtn').removeClass("btn-info");
+                    $("#submitBtn").addClass("btn-success");
+                    $("#submitBtn").removeClass("btn-info");
                     $("#themeCss").attr("href", "./src/styles_light.css")
                 } else {
                     $("#headerDark").show();
                     $("#headerLight").hide();
-                    $('#submitBtn').addClass("btn-info");
-                    $('#submitBtn').removeClass("btn-success");
+                    $("#submitBtn").addClass("btn-info");
+                    $("#submitBtn").removeClass("btn-success");
                     $("#themeCss").attr("href", "./src/styles_dark.css")
                 }
             }
+
+            // load data XML
+            var xmlDoc;
+            var quizs;
+            var quizIndex = 1;
+            var quizCount = 0;
+            $.ajax({
+                type: "GET",
+                url: "./rsrc/qna_data.xml",
+                dataType: "xml",
+                success: function (xmlDoc) {
+                    // test
+                    quizs = $(xmlDoc).find("Table");
+                    console.log("quiz set count: ", quizs.length);
+                    quizCount = $(quizs).find("Row").length;
+                    console.dir(quizs);
+                    console.log("quiz count: " + quizCount);
+
+                    buildQuizPanel();
+                },
+                error: function() { // report error
+                    var failureString = "Failure loading data XML";
+                    console.log(failureString);
+                    alert(failureString);
+                }
+            });
+
+            var health = 3;
+
+
+            function buildQuizPanel() {
+                console.log("Building quiz panel");
+                
+                var indexAgeGroup = 0;
+                var indexQuestion = 1;
+                var indexCorrectAnswer = 6;
+                var quiz = quizs.find("Row").eq(quizIndex);
+
+                var column   = $(quiz).children();
+                var question = column.eq(indexQuestion).find("Data").first().text();
+                console.log("Current question: " + question);
+                $("#currentQuizQuestion").text(question);
+
+                var answer1 = column.eq(indexQuestion+1).find("Data").first().text();
+                var answer2 = column.eq(indexQuestion+2).find("Data").first().text();
+                var answer3 = column.eq(indexQuestion+3).find("Data").first().text();
+                var answer4 = column.eq(indexQuestion+4).find("Data").first().text();
+                var correctAnswer = column.eq(indexCorrectAnswer).find("Data").first().text();
+
+                $("#currentQuizQuestion").text(question);
+                if (answer1.length > 0) {
+                    $("#quizeChoice1").text(answer1);
+                    $("#quizeChoice1").val(answer1);
+                    $("#quizeChoiceTxt1").text(answer1);
+                }
+                if (answer2.length > 0) {
+                    $("#quizeChoice2").text(answer2);
+                    $("#quizeChoice2").val(answer2);
+                    $("#quizeChoiceTxt2").text(answer2);
+                }
+                if (answer3.length > 0) {
+                    $("#quizeChoice3").text(answer3);
+                    $("#quizeChoice3").val(answer3);
+                    $("#quizeChoiceTxt3").text(answer3);
+                }
+                if (answer4.length > 0) {
+                    $("#quizeChoice4").text(answer4);
+                    $("#quizeChoice4").val(answer4);
+                    $("#quizeChoiceTxt4").text(answer4);
+                }
+            }
+
+            $("#submitBtn").click(function(){
+                // TODO: if answer incorrect reduce health and highlight green correct answer
+
+                // TODO: destroy panel
+
+                // TODO: if more questions build new QnA panel
+
+
+            });
     	</script>
     </body>
 </html>
