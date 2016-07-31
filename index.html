@@ -25,26 +25,25 @@
             <input id="themeSwitch" type="checkbox" checked data-toggle="toggle" data-on="Light" data-off="Dark" data-onstyle="success" data-size="mini" align='right' data-offstyle="danger" >
            <!-- </div> -->
         </header>
-<div class="questionborder">
-
-                <div class="questionPane" style="padding:2%; padding-right: 20%; padding-left:20%">
-                  <div class = "lives">
-                      <h3> Lives: <img id="heart" class="heart"src="./asset/heart.png"><img id="heart" class="heart" src="./asset/heart.png" ><img id="heart" class="heart" src="./asset/heart.png" ></h3>
-                  </div>
-
-                    <form action="" class="jumbotron">
-                        <h2 id="currentQuizQuestion">Q1 template</h2>
-                        <div class="answers">
-                            <input id="quizeChoice1" type="radio" name="answer" value="A1"><span id="quizeChoiceTxt1">A1</span></br>
-                            <input id="quizeChoice2" type="radio" name="answer" value="A2"><span id="quizeChoiceTxt2">A2</span></br>
-                            <input id="quizeChoice3" type="radio" name="answer" value="A3"><span id="quizeChoiceTxt3">A3</span></br>
-                            <input id="quizeChoice4" type="radio" name="answer" value="A4"><span id="quizeChoiceTxt4">A4</span></br>
-                        </div>
-                        <button id="submitBtn" type="button" class="btn btn-success">Submit</button>
-                    </form>
+        <div class="questionborder">
+            <div class="questionPane" style="padding:2%; padding-right: 20%; padding-left:20%">
+                <div class = "lives">
+                    <h3> Lives: <img id="heart" class="heart"src="./asset/heart.png"><img id="heart" class="heart" src="./asset/heart.png" ><img id="heart" class="heart" src="./asset/heart.png" ></h3>
                 </div>
 
-</div>
+                <form action="" class="jumbotron">
+                    <h2 id="currentQuizQuestion">Q1 template</h2>
+                    <div class="answers">
+                        <input id="quizeChoice1" type="radio" name="answer" value="A1"><span id="quizeChoiceTxt1">A1</span></br>
+                        <input id="quizeChoice2" type="radio" name="answer" value="A2"><span id="quizeChoiceTxt2">A2</span></br>
+                        <input id="quizeChoice3" type="radio" name="answer" value="A3"><span id="quizeChoiceTxt3">A3</span></br>
+                        <input id="quizeChoice4" type="radio" name="answer" value="A4"><span id="quizeChoiceTxt4">A4</span></br>
+                    </div>
+                    <button id="submitBtn" type="button" class="btn btn-success">Submit</button>
+                </form>
+            </div>
+        </div>
+
         <input type="range" min="0" max="100" defaultValue="0" id='testSlider' />
         <div id='phaserCanvas'></div>
 
@@ -127,28 +126,25 @@
 
                 $("#currentQuizQuestion").text(question);
                 if (answer1.length > 0) {
-                    $("#quizeChoice1").text(answer1);
                     $("#quizeChoice1").val(answer1);
                     $("#quizeChoiceTxt1").text(answer1);
                 }
                 if (answer2.length > 0) {
-                    $("#quizeChoice2").text(answer2);
                     $("#quizeChoice2").val(answer2);
                     $("#quizeChoiceTxt2").text(answer2);
                 }
                 if (answer3.length > 0) {
-                    $("#quizeChoice3").text(answer3);
                     $("#quizeChoice3").val(answer3);
                     $("#quizeChoiceTxt3").text(answer3);
                 }
                 if (answer4.length > 0) {
-                    $("#quizeChoice4").text(answer4);
                     $("#quizeChoice4").val(answer4);
                     $("#quizeChoiceTxt4").text(answer4);
                 }
             }
 
             $("#submitBtn").click(function(){
+                
                 // TODO: if answer incorrect reduce health and highlight green correct answer
 
                 // TODO: destroy panel
