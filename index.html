@@ -98,8 +98,8 @@
         </footer>
 
         <script type="text/javascript">
-            $("#winningPanel").hide();
-            $("#losingPanel").hide();
+            //$("#winningPanel").hide();
+            //$("#losingPanel").hide();
 
             window.onload = loadGame;
 
@@ -237,6 +237,7 @@
 
                 // if answer incorrect reduce health and highlight green correct answer
                 console.log("comparing:["+currentChosenAnswer+"] with ["+currentCorrectAnswer+"]");
+                var isHealthChange = false;
                 if (currentChosenAnswer == currentCorrectAnswer) { // correct
                     console.log("correct choice!");
                     ++numCorrectAnswers;
@@ -245,6 +246,7 @@
                 } else { // wrong
                     console.log("incorrect choice!");
                     --health;
+                    isHealthChange = true;
                 }
                 console.log("current health: " + health);
 
@@ -252,18 +254,20 @@
                 $("#heart3").show();
                 $("#heart2").show();
                 $("#heart1").show();
+                if (isHealthChange)
+                    $("#heart" + (health+1)).fadeOut();
                 switch (health) {
                     case 2:
-                        $("#heart3").hide();
+                        if (!isHealthChange) $("#heart3").hide();
                         break;
                     case 1:
                         $("#heart3").hide();
-                    	$("#heart2").hide();
+                    	if (!isHealthChange) $("#heart2").hide();
                         break;
                     case 0:
                         $("#heart3").hide();
                     	$("#heart2").hide();
-                        $("#heart1").hide();
+                        if (!isHealthChange) $("#heart1").hide();
                         break;
                 }
 
