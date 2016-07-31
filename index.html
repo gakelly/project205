@@ -188,10 +188,8 @@
                 }
 
                 // uncheck radio group
-                $("#quizChoice1").prop('checked', false);
-                $("#quizChoice2").prop('checked', false);
-                $("#quizChoice3").prop('checked', false);
-                $("#quizChoice4").prop('checked', false);
+                for (var i = 0; i < 4; ++i) 
+                    $("#quizChoice" + i).prop('checked', false);
             }
 
             var health = 3;
