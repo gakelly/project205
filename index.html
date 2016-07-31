@@ -134,6 +134,7 @@
                 var correctAnswer = column.eq(indexCorrectAnswer).find("Data").first().text();
                 currentCorrectAnswer = correctAnswer;
 
+                // set question and choice text
                 $("#currentQuizQuestion").text(question);
                 if (answer1.length > 0) {
                     $("#quizeChoice1").val(answer1);
@@ -161,6 +162,12 @@
                     $("#quizeChoice4").hide();
                     $("#quizeChoiceTxt4").hide();
                 }
+
+                // uncheck radio group
+                $("#quizeChoice1").prop('checked', false);
+                $("#quizeChoice2").prop('checked', false);
+                $("#quizeChoice3").prop('checked', false);
+                $("#quizeChoice4").prop('checked', false);
             }
 
             var health = 3;
