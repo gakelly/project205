@@ -246,16 +246,21 @@
                 console.log("current health: " + health);
 
                 // update health UI
-                $("#heart3").hide();
-                $("#heart2").hide();
-                $("#heart1").hide();
+                $("#heart3").show();
+                $("#heart2").show();
+                $("#heart1").show();
                 switch (health) {
-                    case 3:
-                        $("#heart3").show();
                     case 2:
-                    	$("#heart2").show();
+                        $("#heart3").hide();
+                        break;
                     case 1:
-                        $("#heart1").show();
+                        $("#heart3").hide();
+                    	$("#heart2").hide();
+                        break;
+                    case 0:
+                        $("#heart3").hide();
+                    	$("#heart2").hide();
+                        $("#heart1").hide();
                         break;
                 }
 
