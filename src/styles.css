@@ -64,18 +64,23 @@ table {
     border-radius: 30px / 30px ;
     margin: 0 auto;
     border-style:solid;
-    border-color:AB93D3;
+    border-color:AB93D3;    
+}
+
+#winningPanel { 
+    background-image: url('../asset/ForegroundGraphic_a.png');    
 }
 
 .btn-retry {            
     position:relative;
     float:right;
     right:-30px;     
-    bottom:-2px;        
+    bottom: 20px;        
     border-radius: 15px / 30px ;
     border-style:solid;
     border-color:#359438;
-    border-width: 3px;
-    font: 15px arial bold;
+    border-width: 3px;    
+    font-weight: bold;    
     background-color: #96F299;
 }
+

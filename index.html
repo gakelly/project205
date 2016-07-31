@@ -47,10 +47,10 @@
                     <button id="nextBtn" type="button" class="btn btn-success">Next</button>
                 </form>
 
-                <div id="winningPanel" class="jumbotron">
+                <div id="winningPanel" class="jumbotron">                                 
                     <div class="congrats">
                         <h3 style="color:green;">Congratulations!</h3>
-                        <p>You have lived until 75 years of age, and answered __ questions correctly.</p>
+                        <p id="wonText1">You have lived until {age} years of age, and answered {questionsAnswereCount} questions correctly.</p>
                         <p>Happy Retirement!</p>   
                         <button id="replayBtnWon" type="button" class="btn btn-retry">TRY AGAIN</button>                                                                             
                     </div>                                       
@@ -58,7 +58,7 @@
 
                 <div id="losingPanel" class="jumbotron">
                     <div class="congrats">
-                        <p>You have lived until 75 years of age, and answered __ questions correctly.</p>
+                        <p id="lostText1">You have lived until {age} years of age, and answered {questionsAnswereCount} questions correctly.</p>
                         <p>Most common causes of death for this age are:
                             <ul>
                                 <li>Cause A</li>
@@ -109,6 +109,8 @@
             var quizIndex = 1;
             var quizCount = 0;
             var health = 3;
+            var numCorrectAnswers = 0;
+            var upperAgeGroup;
             
             var currentChosenAnswer = "NA", currentCorrectAnswer = "WRONG";
             var currentCorrectAnswerIdx = 0;
@@ -165,7 +167,7 @@
 
                 var ageGroup = column.eq(indexAgeGroup).find("Data").first().text();
                 var ageGroupArr = ageGroup.split(".");
-                var upperAgeGroup = ageGroupArr[ageGroupArr.length-1]; // TODO: could fail if age ground text is in unexpected format.
+                upperAgeGroup = ageGroupArr[ageGroupArr.length-1]; // TODO: could fail if age ground text is in unexpected format.
                 var answer1 = column.eq(indexQuestion+1).find("Data").first().text();
                 var answer2 = column.eq(indexQuestion+2).find("Data").first().text();
                 var answer3 = column.eq(indexQuestion+3).find("Data").first().text();
@@ -237,6 +239,7 @@
                 console.log("comparing:["+currentChosenAnswer+"] with ["+currentCorrectAnswer+"]");
                 if (currentChosenAnswer == currentCorrectAnswer) { // correct
                     console.log("correct choice!");
+                    ++numCorrectAnswers;
                     // carry out correct work
 
                 } else { // wrong
@@ -276,8 +279,20 @@
                 if (quizIndex >= quizCount || health <= 0) { // quiz finished!
                     $("#quizForm").hide();
                     if (health > 0) {
+                        var text1 = $("#wonText1").text();
+                        console.log("#wonText1 before:", text1);
+                        text1 = text1.replace("{age}", upperAgeGroup);
+                        text1 = text1.replace("{questionsAnswereCount}", numCorrectAnswers);
+                        console.log("#wonText1 after:", text1);
+                        $("#wonText1").text(text1);
                         $("#winningPanel").show();
                     } else {
+                        var text1 = $("#lostText1").text();
+                        console.log("#lostText1 before:", text1);
+                        text1 = text1.replace("{age}", upperAgeGroup);
+                        text1 = text1.replace("{questionsAnswereCount}", numCorrectAnswers);
+                        console.log("#lostText1 after:", text1);
+                        $("#lostText1").text(text1);
                         $("#losingPanel").show();
                     }
                 } else {
