@@ -38,15 +38,32 @@
                 <form action="" class="jumbotron">
                     <h2 id="currentQuizQuestion">Q1 template</h2>
                     <div class="answers">
-                        <input id="quizeChoice1" type="radio" name="answer" value="A1"><span id="quizeChoiceTxt1">A1</span></br>
-                        <input id="quizeChoice2" type="radio" name="answer" value="A2"><span id="quizeChoiceTxt2">A2</span></br>
-                        <input id="quizeChoice3" type="radio" name="answer" value="A3"><span id="quizeChoiceTxt3">A3</span></br>
-                        <input id="quizeChoice4" type="radio" name="answer" value="A4"><span id="quizeChoiceTxt4">A4</span></br>
+                        <div id="quizChoiceContainer1" class="quizChoiceContainer" ><input id="quizChoice1" type="radio" name="answer" value="A1"><span id="quizChoiceTxt1">A1</span></div>
+                        <div id="quizChoiceContainer2" class="quizChoiceContainer" ><input id="quizChoice2" type="radio" name="answer" value="A2"><span id="quizChoiceTxt2">A2</span></div>
+                        <div id="quizChoiceContainer3" class="quizChoiceContainer" ><input id="quizChoice3" type="radio" name="answer" value="A3"><span id="quizChoiceTxt3">A3</span></div>
+                        <div id="quizChoiceContainer4" class="quizChoiceContainer" ><input id="quizChoice4" type="radio" name="answer" value="A4"><span id="quizChoiceTxt4">A4</span></div>
                     </div>
                     <button id="submitBtn" type="button" class="btn btn-success">Submit</button>
+                    <button id="nextBtn" type="button" class="btn btn-success">Next</button>
                 </form>
             </div>
         </div>
+
+        <div class="modal fade" id="needToPickAnAnswer" role="dialog">
+            <div class="modal-dialog">
+              <!-- Modal content-->
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h4 class="modal-title">Hey!</h4>
+                </div>
+                <div class="modal-body">Gotta pick an answer!</div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
 
         <input type="range" min="0" max="100" defaultValue="0" id='testSlider' />
         <div id='phaserCanvas'></div>
@@ -106,8 +123,20 @@
                 }
             });
 
+            var currentChosenAnswer = "NA", currentCorrectAnswer = "WRONG";
+            var currentCorrectAnswerIdx = 0;
+            $(document).ready(function() {
+                $('input[type=radio][name=answer]').change(function() {
+                    currentChosenAnswer = this.value;
+                    console.log("choice selected: " + currentChosenAnswer);
+                });
+            });
+            
             function buildQuizPanel() {
                 console.log("Building quiz panel");
+
+                $("#submitBtn").show();
+                $("#nextBtn").hide();
 
                 var indexAgeGroup = 0;
                 var indexQuestion = 1;
@@ -124,40 +153,107 @@
                 var answer3 = column.eq(indexQuestion+3).find("Data").first().text();
                 var answer4 = column.eq(indexQuestion+4).find("Data").first().text();
                 var correctAnswer = column.eq(indexCorrectAnswer).find("Data").first().text();
+                var answers = [answer1, answer2, answer3, answer4];
+                currentCorrectAnswerIdx = correctAnswer;
+                currentCorrectAnswer    = answers[correctAnswer];
+                console.log("currentCorrectAnswer: " + currentCorrectAnswer)
 
+                // set question and choice text
                 $("#currentQuizQuestion").text(question);
                 if (answer1.length > 0) {
-                    $("#quizeChoice1").val(answer1);
-                    $("#quizeChoiceTxt1").text(answer1);
+                    $("#quizChoice1").val(answer1);
+                    $("#quizChoiceTxt1").text(answer1);
                 }
                 if (answer2.length > 0) {
-                    $("#quizeChoice2").val(answer2);
-                    $("#quizeChoiceTxt2").text(answer2);
+                    $("#quizChoice2").val(answer2);
+                    $("#quizChoiceTxt2").text(answer2);
                 }
                 if (answer3.length > 0) {
-                    $("#quizeChoice3").val(answer3);
-                    $("#quizeChoiceTxt3").text(answer3);
+                    $("#quizChoice3").show();
+                    $("#quizChoiceTxt3").show();
+                    $("#quizChoice3").val(answer3);
+                    $("#quizChoiceTxt3").text(answer3);
                 } else {
-                    // TODO: hide radio
+                    $("#quizChoice3").hide();
+                    $("#quizChoiceTxt3").hide();
                 }
                 if (answer4.length > 0) {
-                    $("#quizeChoice4").val(answer4);
-                    $("#quizeChoiceTxt4").text(answer4);
+                    $("#quizChoice4").show();
+                    $("#quizChoiceTxt4").show();
+                    $("#quizChoice4").val(answer4);
+                    $("#quizChoiceTxt4").text(answer4);
                 } else {
-                    // TODO: hide radio
+                    $("#quizChoice4").hide();
+                    $("#quizChoiceTxt4").hide();
                 }
+
+                // uncheck radio group
+                $("#quizChoice1").prop('checked', false);
+                $("#quizChoice2").prop('checked', false);
+                $("#quizChoice3").prop('checked', false);
+                $("#quizChoice4").prop('checked', false);
             }
 
             var health = 3;
             $("#submitBtn").click(function(){
+                // Check if anything selected
+                if (!$("#quizChoice1").prop('checked') &&
+                    !$("#quizChoice2").prop('checked') &&
+                    !$("#quizChoice3").prop('checked') &&
+                    !$("#quizChoice4").prop('checked')) {
+                    $("#needToPickAnAnswer").modal("show");
+                    return;
+                }
 
-                // TODO: if answer incorrect reduce health and highlight green correct answer
+                // if answer incorrect reduce health and highlight green correct answer
+                if (currentChosenAnswer.localeCompare(currentCorrectAnswer)) { // correct
+                    console.log("correct choice!");
+                    // carry out correct work
 
-                // TODO: destroy panel
+                } else { // wrong
+                    console.log("incorrect choice!");
+                    --health;
+                }
 
-                // TODO: if more questions build new QnA panel
+                // update health UI
+                $("#heart3").hide();
+                $("#heart2").hide();
+                $("#heart1").hide();
+                switch (health) {
+                    case 3:
+                        $("#heart3").show();
+                    case 2:
+                    	$("#heart2").show();
+                    case 1:
+                        $("#heart1").show();
+                        break;
+                }
 
+                // highlight correct/incorrect
+                for (var i = 0; i < 4; ++i) {
+                    $("#quizChoiceContainer" + i).removeClass("quizCorrectChoiceContainer");
+                }
+                $("#quizChoiceContainer" + currentCorrectAnswerIdx).addClass("quizCorrectChoiceContainer");                
 
+                // do we show the next button? (are there more questions?)
+                $("#submitBtn").hide();
+                ++quizIndex;
+                if (quizIndex >= quizCount) { // quiz finished!
+                    
+                } else {
+                    $("#nextBtn").show();
+                }
+            });
+
+            $("#nextBtn").click(function(){
+                // clear correct answer border
+                $("#quizChoiceContainer" + currentCorrectAnswerIdx).removeClass("quizCorrectChoiceContainer");
+
+                buildQuizPanel();
+                ++quizIndex;
+                if (quizIndex >= quizCount) { // quiz finished!
+                    // TODO: check win condition
+                }
             });
     	</script>
     </body>
