@@ -38,7 +38,10 @@ function loadGame() {
     var gameState = GameStateEnum.InitialPlayerSetup;
 
     function update() {
-        character.animations.play("walking");
+        if ($("#heart1").is(":visible"))
+            character.animations.play("walking");
+        else
+            character.animations.play("death");
         //character.animations.play("death");
         //character.animations.play("standing");
 

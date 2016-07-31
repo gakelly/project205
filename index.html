@@ -49,19 +49,24 @@
 
                 <div id="winningPanel" class="jumbotron">
                     <div class="congrats">
-                        <p>You have lived until 75 years of age, and answered __ questions correctly.</p>              
-                        </br>
+                        <h3 style="color:green;">Congratulations!</h3>
+                        <p>You have lived until 75 years of age, and answered __ questions correctly.</p>
                         <p>Happy Retirement!</p>   
-                        <button id="replayBtnWon" type="button" class="btn btn-retry">Try Again</button>                                                                             
+                        <button id="replayBtnWon" type="button" class="btn btn-retry">TRY AGAIN</button>                                                                             
                     </div>                                       
                 </div>
 
                 <div id="losingPanel" class="jumbotron">
                     <div class="congrats">
-                        <p>You're a loser</p>              
-                        </br>
-                        <p>Loser!</p>
-                        <button id="replayBtnLost" type="button" class="btn btn-retry">Try Again</button>                                                                          
+                        <p>You have lived until 75 years of age, and answered __ questions correctly.</p>
+                        <p>Most common causes of death for this age are:
+                            <ul>
+                                <li>Cause A</li>
+                                <li>Cause B</li>
+                            </ul>
+                        </p>
+                        <p>Go for a second chance?</p>
+                        <button id="replayBtnLost" type="button" class="btn btn-retry">TRY AGAIN</button>                                                                          
                     </div>
                 </div>
                 
@@ -108,6 +113,8 @@
             var currentChosenAnswer = "NA", currentCorrectAnswer = "WRONG";
             var currentCorrectAnswerIdx = 0;
             $(document).ready(function() {
+                $("#testSlider").attr("disabled", true);
+
                 $('input[type=radio][name=answer]').change(function() {
                     currentChosenAnswer = this.value;
                     console.log("choice selected: " + currentChosenAnswer);
@@ -156,6 +163,9 @@
                 console.log("Current question: " + question);
                 $("#currentQuizQuestion").text(question);
 
+                var ageGroup = column.eq(indexAgeGroup).find("Data").first().text();
+                var ageGroupArr = ageGroup.split(".");
+                var upperAgeGroup = ageGroupArr[ageGroupArr.length-1]; // TODO: could fail if age ground text is in unexpected format.
                 var answer1 = column.eq(indexQuestion+1).find("Data").first().text();
                 var answer2 = column.eq(indexQuestion+2).find("Data").first().text();
                 var answer3 = column.eq(indexQuestion+3).find("Data").first().text();
@@ -166,6 +176,10 @@
                 currentCorrectAnswer    = answers[currentCorrectAnswerIdx];
                 console.log("currentCorrectAnswer: " + currentCorrectAnswer)
                 console.log("currentChosenAnswer:" + currentChosenAnswer);
+
+                // set walking man slider
+                
+                $("#testSlider").val(upperAgeGroup);
 
                 // set question and choice text
                 $("#currentQuizQuestion").text(question);
@@ -232,16 +246,21 @@
                 console.log("current health: " + health);
 
                 // update health UI
-                $("#heart3").hide();
-                $("#heart2").hide();
-                $("#heart1").hide();
+                $("#heart3").show();
+                $("#heart2").show();
+                $("#heart1").show();
                 switch (health) {
-                    case 3:
-                        $("#heart3").show();
                     case 2:
-                    	$("#heart2").show();
+                        $("#heart3").hide();
+                        break;
                     case 1:
-                        $("#heart1").show();
+                        $("#heart3").hide();
+                    	$("#heart2").hide();
+                        break;
+                    case 0:
+                        $("#heart3").hide();
+                    	$("#heart2").hide();
+                        $("#heart1").hide();
                         break;
                 }
 
@@ -268,7 +287,7 @@
 
             $("#nextBtn").click(function(){
                 enableAllAnswerRadios();
-                
+
                 // clear correct answer border
                 $("#quizChoiceContainer" + (currentCorrectAnswerIdx+1)).removeClass("quizCorrectChoiceContainer");
 
@@ -276,6 +295,13 @@
                 if (quizIndex >= quizCount) { // quiz finished!
                     // TODO: check win condition
                 }
+            });
+
+            $("#replayBtnWon").click(function(){
+                location.reload();
+            });
+            $("#replayBtnLost").click(function(){
+                location.reload();
             });
     	</script>
     </body>
