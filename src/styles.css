@@ -87,3 +87,7 @@ table {
     background-color: #96F299;
 }
 
+#quizForm {
+    padding-left: 40px;
+    padding-right: 40px;
+}
