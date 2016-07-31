@@ -91,3 +91,7 @@ table {
     padding-left: 40px;
     padding-right: 40px;
 }
+
+input + span {
+    font-size: 20px;
+}
