@@ -56,3 +56,13 @@ table {
     border-style: solid;
     border-color: green;
 }
+
+.congrats {            
+    background-color: #FFFFFF;
+    text-align: center;
+    width: 60%;
+    border-radius: 30px / 30px ;
+    margin: 0 auto;
+    border-style:solid;
+    border-color:AB93D3;
+}
