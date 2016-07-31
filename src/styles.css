@@ -9,13 +9,12 @@ table {
 }
 
 .radiopadding{
-padding: 2%;
-
+    padding: 2%;
 }
 .switchlocation{
-  position: absolute;
-  right:    0;
-  bottom:   0;
+    position: absolute;
+    right:    0;
+    bottom:   0;
 }
 
 .questionPane {
@@ -28,35 +27,29 @@ padding: 2%;
     padding: 20px;
     text-align: left;
 }
-.pictures{
-
-align: right;
-
+.pictures {
+    align: right;
 }
 
 
-.questionborder
-{
-background-color: grey;
-border-top: 5px;
+.questionborder {
+    background-color: grey;
+    border-top: 5px;
 }
 
-.lives
-{
-padding-right: 1%;
-/*width: 180px;*/
+.lives {
+    padding-right: 1%;
 }
 
-.heart
-{
-  height:25px;
-  width: 25px;
+.heart {
+    height:25px;
+    width: 25px;
 }
 
 h3 {
-  float:right;
+    float:right;
 }
 
-.answers{
-padding-right: 20%;
+.answers {
+    padding-right: 20%;
 }
