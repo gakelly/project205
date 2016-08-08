@@ -13,7 +13,8 @@
  - Thomas Edwards
 
 ###Hosted Web Application
-http://107.170.255.134/project205/
+http://107.170.255.134/project205/  
+http://gakelly.github.io
 
 ###Team Google Drive
 https://drive.google.com/drive/folders/0B0LeX3Myb7D0bmVULVVEdkFhUlU
